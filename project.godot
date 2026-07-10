@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assigns value to param
+
+config_version=5
+
+[application]
+
+config/name="Backrooms: Reality Glitch"
+run/main_scene="res://scenes/levels/level_0.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+
+[autoload]
+
+NetworkManager="*res://scripts/singletons/NetworkManager.gd"
+GameManager="*res://scripts/singletons/GameManager.gd"
+SaveManager="*res://scripts/singletons/SaveManager.gd"
+
+[rendering]
+
+renderer/rendering_method="forward_plus"
