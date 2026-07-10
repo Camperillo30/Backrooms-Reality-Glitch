@@ -35,10 +35,18 @@ func join_game(address):
 
 func _on_player_connected(id):
 	print("Jugador conectado: ", id)
-	GameManager.add_player(id)
+	var game_manager = get_node_or_null("/root/GameManager")
+	if game_manager:
+		game_manager.add_player(id)
+	else:
+		print("Advertencia: GameManager no está disponible en la raíz del proyecto.")
 	player_list_changed.emit()
 
 func _on_player_disconnected(id):
 	print("Jugador desconectado: ", id)
-	GameManager.remove_player(id)
+	var game_manager = get_node_or_null("/root/GameManager")
+	if game_manager:
+		game_manager.remove_player(id)
+	else:
+		print("Advertencia: GameManager no está disponible en la raíz del proyecto.")
 	player_list_changed.emit()
